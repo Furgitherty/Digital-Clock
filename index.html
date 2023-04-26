@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <title> Digital Clock </title>
+
+        <style>
+
+            #anew {
+
+                text-align: center;
+
+            }
+
+
+            body {
+
+                background-color: lightblue;
+
+            }
+
+            #txt {
+
+                text-align: center;
+
+                padding-top: 40px;
+
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <p id="txt"></p>
+
+        <script>
+            function startTime() {
+                const today = new Date();
+                let h = today.getHours();
+                let m = today.getMinutes();
+                let s = today.getSeconds();
+            }
+
+            // checks time for minutes
+
+            m = checkTime(m) 
+
+            // checks time for seconds
+
+            s = checkTime(s)
+
+            // Clock
+
+            document.getElementbyId('txt').innerHTML = h + ":" + m + ":" + s;
+
+            setTimeout(startTime, 1000);
+
+            function checkTime(i) {
+                if (i < 10) {i = "0" + i}; // Add zero in front of number < 10 return i;
+            }
+
+
+        </script>
+
+    </body>
+
+</html>
