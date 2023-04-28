@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 
     <head>
 
@@ -8,65 +8,63 @@
 
         <style>
 
-            #anew {
+            button {
 
-                text-align: center;
-
-            }
-
-
-            body {
-
-                background-color: lightblue;
+                padding: 30px;
 
             }
 
-            #txt {
+            .agreement {
 
-                text-align: center;
-
-                padding-top: 40px;
+                margin-left: 550px;
 
             }
 
         </style>
+
     </head>
 
-    <body>
+    <body onload="startTime()">
+
+        <h1 style="text-align: center;"> Clock </h1>
+
+        <div id="txt" style="text-align: center; font-size: 100px; padding-top: 10%;"></div>
+
+        <br>
+
+        <p class="agreement"> <button>12 hours</button> </p>
+
+        <p class="agreement"> <button>24 hours</button> </p>
 
         <script>
 
             function startTime() {
                 const today = new Date();
+
+                // Define variables
+
                 let h = today.getHours();
                 let m = today.getMinutes();
                 let s = today.getSeconds();
+                m = checkTime(m);
+                s = checkTime(s);
+
+                // This changes anything with the Id, "txt"
+
+                document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+
+                // This sets a limit
+
+                setTimeout(startTime, 1000);
             }
 
-            // checks time for minutes
-
-            m = checkTime(m) 
-
-            // checks time for seconds
-
-            s = checkTime(s)
-
-            // Clock
-
-            document.getElementbyId('txt').innerHTML = h + ":" + m + ":" + s;
-
-            setTimeout(startTime, 1000);
-
             function checkTime(i) {
-                if (i < 10) {i = "0" + i}; // Add zero in front of number < 10 return i;
-
+                if (i < 10) {i = "0" + i};
                 return i;
             }
 
         </script>
-        
-        <p id="txt"></p>
-        
+     
     </body>
 
 </html>
